@@ -58,8 +58,6 @@ app.get('/weather', (req, res) => {
             if (error) {
                 return res.send({ error })
             } 
-            console.log('Location:', location)
-            console.log("Forecast: ", forecastData)
             res.send({
                 location,
                 forecast: forecastData,
@@ -68,18 +66,6 @@ app.get('/weather', (req, res) => {
         
         })
     }) 
-})
-
-app.get('/products', (req, res) => {
-    if (!req.query.search) {
-        return res.send({
-            error: 'no search term sent'
-        })
-    }
-    console.log(req.query.search)
-    res.send({
-        products: []
-    })
 })
 
 app.get('/help/*', (req, res) => {

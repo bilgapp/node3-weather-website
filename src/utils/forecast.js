@@ -7,14 +7,14 @@ const forecast = (lat, lon, callback) => {
         if (error) {
             callback('Unable to connect to location services', undefined)
         } else if (! body.current) {
-            console.log(url)
             callback('Unable to get forecast for given point', undefined)
         } else {
             const info = body.current
             callback(undefined, 
                 info.weather_descriptions + 
                 '. Temp is ' + info.temperature + 
-                ', feels like ' + info.feelslike)
+                ', feels like ' + info.feelslike +
+                ', humidity is ' + info.humidity)
        }
     })
 
